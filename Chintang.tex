@@ -1,0 +1,96 @@
+% use KOMAScript
+\documentclass{scrartcl}
+
+%--------- font setup --------
+% make sure you use XeLaTeX or LuaLaTeX for true Unicode support
+% font selection is the matter of choice
+\usepackage{fontspec} % font selection
+\setromanfont[Numbers=Monospaced]{Linux Libertine O}
+\setsansfont[Numbers=Monospaced]{Linux Biolinum O}
+% use the fontawesome package if you want fancy symbols
+% the Fontawesome font must be installed as well
+\usepackage{fontawesome}
+
+%--------- mathematics support (you know you need this!) --------
+\usepackage{amsmath,amsthm,amssymb,amsfonts,stmaryrd,mathtools} 
+
+%--------- nicer tables --------
+\usepackage{longtable}
+\usepackage{ctable, multirow, float}
+
+\setupctable{
+  mincapwidth=0.8\textwidth,
+  captionskip=0.5em,
+  footerwidth
+}
+
+\setlength{\tabcolsep}{12pt}
+
+% uncomment to enforce float placement HERE
+% \floatplacement{table}{H}
+
+
+%--------- nicer lists -------
+\usepackage{enumitem}
+
+%--------- linguistics support --------
+\usepackage{expex}     % glosses, linguistic examples etc
+
+% set up font for linguistic examples
+\newfontfamily\glossfont{Gentium Plus Italic}[Scale=MatchLowercase,Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}]
+
+\newfontfamily\devanagari{Noto Sans Devanagari}[Scale=MatchLowercase,Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}]
+
+
+\newfontfamily\japanese{Noto Sans CJK JP}[Scale=MatchLowercase,Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}]
+
+
+%--------- various packages --------
+\usepackage{graphicx}  % for inclusion of pictures etc.
+\usepackage{lipsum} % text fillers
+
+%--------- citations --------
+
+\usepackage{natbib} % for better control of citation and bibliography 
+% set citation style: no separator between author and year, separator between multiple citations = semicolon, separator between citation and postnote (e.g. page number) = colon
+\setcitestyle{aysep={},citesep={;},notesep={:}}
+
+
+%--------- hyperlinks --------
+% we set up hyperref to hide the links
+% they will work, but the document will look classy
+% use hypersetup if you want to have colors
+\usepackage[hidelinks]{hyperref}
+
+%--------- clever references --------
+\usepackage[capitalise]{cleveref}
+
+%--------- page setup -------
+\KOMAoptions{paper=a4} % set a4 paper
+\KOMAoptions{twoside=false} % we want to have one side for the online version
+\KOMAoptions{BCOR=15mm} % the binding correction
+\KOMAoptions{DIV=13} % how many lines
+
+
+% make sure the page dimentions are correctly calculated
+\recalctypearea 
+
+%--------- title setup -------
+\title{Chintang}
+\author{Valerie Ledermann}
+\date{14.10.2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Reference}
+Chintang is a Kiranti language spoken in Nepal. 
+As one of the leading experts in comparative linguistics, Baltasar Bickel is also an authority concerning Chintang.
+In cooperation with other scholars, they studied valency \citep{Schikowski2015}, ordering of prefixes \citep{Bickel2007}, grammatical relations in Chintang \citep{Bickel2008}, as well as children's language acquisition \citep{Stoll2011}.
+Another expert is linguist Yogendra P. Yadava who examined numerous linguistic matters concerning Nepal languages \citeyearpar{Yadava2005}.
+
+\bibliographystyle{unified.linguistic}
+\bibliography{Chintang}
+
+\end{document}
